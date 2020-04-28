@@ -12,6 +12,7 @@ from aiounifi.events import (
     WIRELESS_CLIENT_CONNECTED,
     WIRELESS_CLIENT_DISCONNECTED,
     WIRELESS_CLIENT_ROAM,
+    WIRELESS_CLIENT_ROAMRADIO,
     WIRELESS_CLIENT_UNBLOCKED,
 )
 
@@ -29,6 +30,7 @@ WIRELESS_CLIENT = (
     WIRELESS_CLIENT_CONNECTED,
     WIRELESS_CLIENT_DISCONNECTED,
     WIRELESS_CLIENT_ROAM,
+    WIRELESS_CLIENT_ROAMRADIO,
 )
 
 
@@ -72,6 +74,7 @@ class UniFiClient(UniFiBase):
                 self.wireless_connection = self.client.event.event in (
                     WIRELESS_CLIENT_CONNECTED,
                     WIRELESS_CLIENT_ROAM,
+                    WIRELESS_CLIENT_ROAMRADIO,
                 )
 
             elif self.client.event.event in WIRED_CLIENT:
